@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
+        <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
+        <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -15,8 +16,38 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fza-dJ-n8b">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="gSE-9X-lKB"/>
+                                    <barButtonItem title="Clear" id="9n5-50-4A3">
+                                        <connections>
+                                            <action selector="clearAllAnnotations:" destination="vXZ-lx-hvc" id="feL-cZ-amr"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cWN-G8-liN">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Fza-dJ-n8b" firstAttribute="trailing" secondItem="cWN-G8-liN" secondAttribute="trailing" id="415-L4-aGp"/>
+                            <constraint firstItem="cWN-G8-liN" firstAttribute="leading" secondItem="Fza-dJ-n8b" secondAttribute="leading" id="7dP-Bv-5nB"/>
+                            <constraint firstAttribute="bottom" secondItem="Fza-dJ-n8b" secondAttribute="bottom" id="Ei4-Ga-k4Q"/>
+                            <constraint firstItem="Fza-dJ-n8b" firstAttribute="top" secondItem="cWN-G8-liN" secondAttribute="bottom" id="WfL-rt-tIC"/>
+                            <constraint firstItem="cWN-G8-liN" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="oZc-jq-CTW"/>
+                            <constraint firstAttribute="trailing" secondItem="Fza-dJ-n8b" secondAttribute="trailing" id="uA2-js-to3"/>
+                            <constraint firstItem="cWN-G8-liN" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="yY1-eQ-by8"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="cWN-G8-liN" id="4vi-rB-ynW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
